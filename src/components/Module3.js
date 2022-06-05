@@ -1,17 +1,14 @@
 import React from 'react';
-import { JumbotronWrapper } from './common';
+import { Card } from 'react-bootstrap';
 
-class Module3 extends React.Component {
-	constructor(props) {
-        super(props);
-        this.state = {
-        };
-    }
-	render() {
-		return (
-			<JumbotronWrapper title="Module - 3" />
-		);
-	}
-
+function Module3() {
+	return (
+		<Card className="text-center">
+			<Card.Header>AUTHENTICATED PROTECTED MODULE</Card.Header>
+			<Card.Body>
+				<Card.Title>Module 3</Card.Title>
+			</Card.Body>
+		</Card>
+	);
 }
 export default Module3;

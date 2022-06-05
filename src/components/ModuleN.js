@@ -1,23 +1,29 @@
-import React, { memo } from 'react';
+import React from 'react';
+import { Card } from 'react-bootstrap';
+import MapAllowedRoutes from "../routing/MapAllowedRoutes";
 import { Link } from 'react-router-dom';
 import { getAllowedRoutes } from "../helpers";
-import { JumbotronWrapper } from './common';
-import MapAllowedRoutes from "../routes/MapAllowedRoutes";
 
 const basePath = '/app/module-n';
+
 function ModuleN({ children }) {
 	const allowedRoutes = getAllowedRoutes(children);
 	return (
-		<JumbotronWrapper title="Module - N" >
-			{allowedRoutes.map(({ path, title }) =>
-				<Link key={path} to={`${basePath}${path}`} style={{ marginRight: '10px' }}>{title}</Link>
-			)}
-			<MapAllowedRoutes
-				routes={allowedRoutes}
-				basePath={basePath}
-			/>
-		</JumbotronWrapper>
-	)
+		<Card className="text-center">
+			<Card.Header>AUTHENTICATED PROTECTED MODULE</Card.Header>
+			<Card.Body>
+				<Card.Title>Module N</Card.Title>
+				<Card.Text>
+				{allowedRoutes.map(({ path, title }) =>
+					<Link key={path} to={`${basePath}${path}`} style={{ marginRight: '10px' }}>{title}</Link>
+				)}
+				<MapAllowedRoutes
+					routes={allowedRoutes}
+					basePath={basePath}
+				/>
+				</Card.Text>
+			</Card.Body>
+		</Card>
+	);
 }
-
-export default memo(ModuleN);
+export default ModuleN;

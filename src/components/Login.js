@@ -4,6 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { JumbotronWrapper } from './common';
 
+import { Roles } from "../config";
+
+const role_count = Object.keys(Roles).length;
+
 function Login() {
 	let [selected, setSelected] = useState([]);
 	let navigate = useNavigate();
@@ -34,13 +38,13 @@ function Login() {
 					value={selected}
 					onChange={handleChange}
 					multiple
+					htmlSize={role_count}
 				>
-					{/* TODO: Dynamic role options */}
-					<option value="SUPER_ADMIN">SUPER_ADMIN</option>
-					<option value="ADMIN">ADMIN</option>
-					<option value="MANAGER">MANAGER</option>
-					<option value="CUSTOMER">CUSTOMER</option>
-					<option value="GUEST">GUEST</option>
+					{Object.keys(Roles).map( (keyName, keyIndex) => {
+						return (
+							<option key={keyName} value={Object.values({keyName})[0]}>{keyName}</option>
+						);
+					})}
 				</Form.Control>
 			</Form.Group>
 			<Alert variant="primary">Support multi roles.</Alert>

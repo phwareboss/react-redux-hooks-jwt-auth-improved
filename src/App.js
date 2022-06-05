@@ -1,21 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Container, Row, Col } from 'react-bootstrap';
-import AppRoutes from './routes';
+import AppRouter from './routing';
 
-class App extends React.Component {
-    render() {
-       // const { currentUser, showModeratorBoard, showAdminBoard } = this.state;
-        return (
-            <Container fluid>
-                <Row>
-                    <Col className="p-0">
-                        <AppRoutes />
-                    </Col>
-                </Row>
-            </Container>
-        );
-    }
+function App() {
+    useEffect(() => {
+        console.log("This is the same as componentDidMount in a react class. ");
+    }, []);
+
+    // const { currentUser, showModeratorBoard, showAdminBoard } = this.state;
+
+    return (
+        <Container fluid>
+            <Row>
+                <Col className="p-0">
+                    <AppRouter />
+                </Col>
+            </Row>
+        </Container>
+    );
 }
 function mapStateToProps(state) {
     const { user } = state.auth;

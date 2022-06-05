@@ -1,3 +1,13 @@
+# SEE THIS GUIDE:
+https://www.bezkoder.com/react-redux-jwt-auth/
+
+AND
+
+https://github.com/umair-khanzada/role-based-access-control/blob/master/src/routes/MapAllowedRoutes.js
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

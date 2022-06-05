@@ -1,7 +1,7 @@
 import React from "react";
 
 import UserService from "../services/user.service";
-import EventBus from "../common/EventBus";
+import EventBus from "../helpers/EventBus";
 
 export default class BoardAdmin extends React.Component {
     constructor(props) {

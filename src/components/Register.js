@@ -1,23 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { JumbotronWrapper } from './common';
+import { Card } from 'react-bootstrap';
 
-class Register extends  React.Component {
-	constructor(props) {
-        super(props);
-        this.state = {
-        };
-    }
-	render() {
-		return (
-			<JumbotronWrapper title="Register">
-			<Link to="/login">
-				Back to login
-			</Link>
-		</JumbotronWrapper>
-		);
-	}
-
+function Register(props) {
+	return (
+		<Card className="text-center">
+			<Card.Header>AUTHENTICATED PROTECTED MODULE</Card.Header>
+			<Card.Body>
+				<Card.Title>Module 1</Card.Title>
+				<Link to="/login">
+					Back to login
+				</Link>
+			</Card.Body>
+		</Card>
+	);
 }
 export default Register;
 

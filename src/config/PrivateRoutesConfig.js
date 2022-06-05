@@ -35,7 +35,7 @@ import {
 const defaultExport = [
 	{
 		component: Module1,
-		path: '/',
+		path: '/module-1',
 		title: 'Module - 1',
 		exact: true,
 	},

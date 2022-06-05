@@ -1,5 +1,6 @@
 export { default as LandingPage } from './LandingPage';
 export { default as Login } from './Login';
+export { default as Logout } from './Logout';
 export { default as Register } from './Register';
 export { default as ForgotPassword } from './ForgotPassword';
 export { default as Module1 } from './Module1';
