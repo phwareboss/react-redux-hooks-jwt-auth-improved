@@ -1,15 +1,15 @@
 import React, { Fragment } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Login, Logout, Register, ForgotPassword, LandingPage } from '../components';
+import { Home, Login, LoginDemo, Logout, Register, Forgot } from '../components/public-modules';
 
 function PublicRoutes() {
 	return (
 		<Fragment>
 			<Routes>
-				<Route index element={<LandingPage />} />	
-				<Route path="/forgot-password" element={<ForgotPassword />} />
+				<Route index element={<Home />} />	
+				<Route path="/forgot" element={<Forgot />} />
 				<Route path="/register" element={<Register />} />	
-				<Route path="/login" element={<Login />} />	
+				<Route path="/login" element={<LoginDemo />} />	
 				<Route path="/logout" element={<Logout />} />	
 			</Routes>
 		</Fragment>

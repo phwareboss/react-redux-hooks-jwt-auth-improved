@@ -1,4 +1,7 @@
-import { Roles } from "../config"
+import { intersection } from 'lodash';
+
+// User Roles
+import Roles from "./Roles.config"
 
 // Components
 import {
@@ -9,9 +12,10 @@ import {
 	ModuleNChild1,
 	ModuleNChild2,
 	ModuleNChild3,
-	Dashboard,
-	Profile,
 } from "../components"
+
+import Dashboard from "../components/private-modules/Dashs/Dashboard"
+import MyProfile from "../components/private-modules/My/Profile"
 
 // TODO:
 /*
@@ -32,7 +36,7 @@ import {
 * 3. children: children is also an optional prop and it's type is an array of route config objects, children are used for nested routes
 * */
 
-const defaultExport = [
+export const PrivateRoutesConfig = [
 	{
 		component: Module1,
 		path: '/module-1',
@@ -90,15 +94,32 @@ const defaultExport = [
 		],
 	},
 	{
-		component: Profile,
+		component: MyProfile,
 		path: '/profile',
 		title: 'Profile',
-		permission: [
-			Roles.SUPER_ADMIN,
-			Roles.ADMIN,
-			Roles.MANAGER,
-			Roles.CUSTOMER
-		],
+		permission: AllAuthedRoles(),
 	},
 ];
-export default defaultExport
+
+function AllAuthedRoles(Roles) {
+	// returns an array of all roles names. 
+	const arr=[];
+	for (const key in Roles) {
+		arr.push(Roles(key));
+	}
+	return arr;
+}
+
+export function getAllowedRoutes() {
+	const routes = PrivateRoutesConfig;
+	const roles = JSON.parse(localStorage.getItem('roles'));
+	if (roles.includes('DEV') || roles.includes('GLOBAL_ADMIN')) return routes;  // pass all back.
+	return routes.filter(({ permission }) => {
+		if(!permission) return true;
+		else if(!isArrayWithLength(permission)) return true;
+		else return intersection(permission, roles).length;
+	});
+}
+function isArrayWithLength(arr) {
+	return (Array.isArray(arr) && arr.length)
+}

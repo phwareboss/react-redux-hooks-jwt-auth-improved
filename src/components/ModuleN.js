@@ -2,7 +2,7 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import MapAllowedRoutes from "../routing/MapAllowedRoutes";
 import { Link } from 'react-router-dom';
-import { getAllowedRoutes } from "../helpers";
+import { getAllowedRoutes } from "../config/PrivateRoutes.config";
 
 const basePath = '/app/module-n';
 

@@ -2,9 +2,9 @@ import React, { memo, useState } from 'react';
 import { Alert, Form, Button } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
-import { JumbotronWrapper } from './common';
+import { JumbotronWrapper } from '../common';
 
-import { Roles } from "../config";
+import Roles from "../../config/Roles.config";
 
 const role_count = Object.keys(Roles).length;
 

@@ -1,8 +1,4 @@
 
-   
-import { intersection } from 'lodash';
-
-
 export function isLoggedIn() {
 	/*
 		* Note:
@@ -10,18 +6,4 @@ export function isLoggedIn() {
 		*  user is authenticated you can update this logic as per your app.
 	*/
 	return !!localStorage.getItem('roles')
-}
-
-export function isArrayWithLength(arr) {
-	return (Array.isArray(arr) && arr.length)
-}
-
-export function getAllowedRoutes(routes) {
-	const roles = JSON.parse(localStorage.getItem('roles'));
-	if (roles.includes('DEV') || roles.includes('GLOBAL_ADMIN')) return routes;  // pass all back.
-	return routes.filter(({ permission }) => {
-		if(!permission) return true;
-		else if(!isArrayWithLength(permission)) return true;
-		else return intersection(permission, roles).length;
-	});
 }

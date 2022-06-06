@@ -15,7 +15,7 @@ function Logout(props) {
 
 	return (
 		<Spinner animation="border" role="status">
-            <span className="visually-hidden">LOGGIN OUT...</span>
+            <span className="visually-hidden">SIGNING OUT...</span>
         </Spinner>
 	);
 }

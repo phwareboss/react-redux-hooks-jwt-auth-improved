@@ -1,7 +1,7 @@
 /*
 * These are the placeholder roles you can replace these with yours
 */
-const roles = {
+const Roles = {
 	DEV:'DEV',
 	SUPER_ADMIN: 'SUPER_ADMIN',
 	ADMIN: 'ADMIN',
@@ -10,4 +10,4 @@ const roles = {
 	CUSTOMER: 'CUSTOMER',
 	GUEST: 'GUEST'
 };
-export default roles
+export default Roles
